@@ -4,12 +4,16 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.validation.constraints.Email;
+
 import com.devsuperior.bds03.entities.User;
 
 public class UserDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+	
+	@Email(message = "Digite um e-mail válido")
 	private String email;
 
 	Set<RoleDTO> roles = new HashSet<>();
@@ -17,7 +21,7 @@ public class UserDTO implements Serializable{
 	public UserDTO() {
 	}
 
-	public UserDTO(Long id, String firstName, String lastName, String email) {
+	public UserDTO(Long id, String email) {
 		this.id = id;
 		this.email = email;
 
